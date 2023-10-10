@@ -1,0 +1,149 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1126px;
+  width: calc(100vw - 140px);
+  padding: 18px 70px;
+}
+
+.header__logo-link:hover {
+  opacity: 0.7;
+}
+
+.header__menu-main {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__menu-movies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  gap: 16px;
+}
+
+.header__menu-buttons {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.38;
+  text-align: right;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header__button-registration {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.33;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header__button-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.33;
+  text-decoration: none;
+  background: #3ddc84;
+  color: #000;
+  border-radius: 3px;
+  width: 76px;
+  height: 32px;
+  margin: 0;
+}
+
+.header__button-profile {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.14;
+  text-decoration: none;
+  border-radius: 20px;
+  color: #fff;
+  background: #313131;
+  width: 100px;
+  height: 32px;
+}
+
+.header__button-burger {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  background-image: url("../../images/burger-menu-icon.svg");
+  background-color: transparent;
+  background-position: center;
+  border: none;
+  display: none;
+  padding: 0;
+}
+
+.header__menu-buttons:hover,
+.header__button-burger:hover,
+.header__button-registration:hover,
+.header__button-login:hover,
+.header__button-profile:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 18px 30px;
+    min-width: calc(100vw - 60px)
+  }
+
+  .header__menu-buttons {
+    display: none;
+  }
+
+  .header__button-profile {
+    display: none;
+  }
+
+  .header__button-burger {
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+  .header {
+    padding: 18px 20px 18px 14px;
+    min-width: calc(100vw - 38px)
+  }
+
+  .header__menu-main {
+    gap: 14px;
+  }
+
+  .header__button-registration {
+    font-size: 10px;
+    line-height: 1.6;
+  }
+
+  .header__button-login {
+    font-size: 10px;
+    width: 54px;
+    height: 26px;
+    line-height: 1.6;
+  }
+
+  .header__button-burger {
+    background-size: cover;
+    width: 28px;
+    height: 36px;
+  }
+}

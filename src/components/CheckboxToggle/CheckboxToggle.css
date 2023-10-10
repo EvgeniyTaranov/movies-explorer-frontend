@@ -1,0 +1,58 @@
+.checkbox-toggle {
+  display: flex;
+  margin: auto;
+  max-width: 156px;
+  gap: 12px;
+}
+
+.checkbox-toggle__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(0 0 0 0);
+  overflow: hidden;
+}
+
+.checkbox-toggle__switch {
+  display: flex;
+  background-image: url(../../images/tumbler-off.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 36px 20px;
+  width: 36px;
+  height: 18px;
+}
+
+.checkbox-toggle__switch:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.checkbox-toggle__input:checked+span {
+  background-image: url(../../images/tumbler-on.svg);
+}
+
+.checkbox-toggle__text {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 108px;
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .checkbox-toggle {
+    max-width: 148px;
+    gap: 13px;
+  }
+
+  .checkbox-toggle__text {
+    max-width: 99px;
+    font-size: 11px;
+    line-height: 1.63;
+  }
+}
