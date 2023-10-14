@@ -47,7 +47,7 @@
 }
 
 .banner__element:hover {
-    opacity: 0.7;
+    opacity: 0.6;
     cursor: pointer;
 }
 
@@ -75,7 +75,7 @@
     .banner {
         max-width: 728px;
         gap: 314px;
-        padding: 350px 24px 40px;
+        padding: 350px 24px 30px;
     }
 
     .banner__title {
@@ -102,14 +102,14 @@
 }
 
 @media (max-width: 320px) {
-    .promo {
-        padding: 14px 14px 0 14px;
+    .main-banner {
+        padding: 10px 14px 0;
     }
 
     .banner {
         max-width: 292px;
         gap: 212px;
-        padding: 220px 0px 17px;
+        padding: 219px 0px 17px;
     }
 
     .banner__title {
@@ -117,9 +117,10 @@
         font-size: 29px;
         line-height: 1.28;
         font-weight: 400;
+        letter-spacing: -1.1px;
     }
 
-    .navigation__section {
+    .navigation-section {
         gap: 6px;
     }
 

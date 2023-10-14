@@ -57,6 +57,11 @@
   color: #fff;
 }
 
+.introduction__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .introduction__image {
   max-width: 270px;
   max-height: 327px;

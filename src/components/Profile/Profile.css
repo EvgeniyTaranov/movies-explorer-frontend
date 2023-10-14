@@ -109,7 +109,7 @@
 .profile__edit-button:hover,
 .profile__exit-button:hover,
 .profile__save-button:hover {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: pointer;
 }
 

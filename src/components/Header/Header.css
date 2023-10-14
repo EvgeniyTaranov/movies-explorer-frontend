@@ -2,13 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1126px;
+  max-width: 1140px;
   width: calc(100vw - 140px);
-  padding: 18px 70px;
+  margin: 18px 70px;
+  gap: auto;
+  position: relative;
 }
 
 .header__logo-link:hover {
-  opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .header__menu-main {
@@ -23,6 +26,9 @@
   align-items: center;
   margin: auto;
   gap: 16px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .header__menu-buttons {
@@ -96,14 +102,14 @@
 .header__button-registration:hover,
 .header__button-login:hover,
 .header__button-profile:hover {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 18px 30px;
-    min-width: calc(100vw - 60px)
+    margin: 17px 30px 15px;
+    min-width: calc(100vw - 60px);
   }
 
   .header__menu-buttons {
@@ -121,8 +127,8 @@
 
 @media (max-width: 320px) {
   .header {
-    padding: 18px 20px 18px 14px;
-    min-width: calc(100vw - 38px)
+    margin: 17px auto 19px;
+    min-width: calc(100vw - 28px);
   }
 
   .header__menu-main {
@@ -143,7 +149,7 @@
 
   .header__button-burger {
     background-size: cover;
-    width: 28px;
+    width: 38px;
     height: 36px;
   }
 }

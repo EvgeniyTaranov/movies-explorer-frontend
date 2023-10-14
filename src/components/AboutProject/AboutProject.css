@@ -99,7 +99,7 @@
 @media (max-width: 768px) {
     .project {
         max-width: 768px;
-        padding: 90px 50px 90px;
+        padding: 90px 50px 83px;
     }
 
     .project__info {
@@ -120,7 +120,7 @@
     }
 
     .project__stage-text {
-        margin: 12px 0 0;
+        margin: 8px 0 0;
         font-weight: 400;
         font-size: 14px;
         color: #A0A0A0;
@@ -159,13 +159,13 @@
 
 @media (max-width: 320px) {
     .project {
-        padding: 70px 18px 69px;
+        padding: 70px 18px 67px;
     }
 
     .project__info {
         margin-top: 60px;
-        margin-bottom: 60px;
-        gap: 57px;
+        margin-bottom: 58px;
+        gap: 55px;
     }
 
     .project__element {
@@ -187,6 +187,6 @@
     }
 
     .project__stage-text {
-        margin: 0 0 0;
+        margin: 0;
     }
 }

@@ -6,7 +6,13 @@ function SearchField() {
     <section className="search">
       <form className="search__field">
         <div className="search__field-container">
-          <input placeholder="Фильм" className="search__input"></input>
+          <input
+            placeholder="Фильм"
+            className="search__input"
+            required
+            aria-label="Search"
+            type="text"
+          ></input>
           <button type="button" className="search__button"></button>
         </div>
         <CheckboxToggle></CheckboxToggle>

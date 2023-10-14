@@ -10,7 +10,7 @@ function Login() {
           <NavLink to="/" className="login__logo-link">
             <img src={logo} alt="Логотип в виде ярко-зеленого круга" />
           </NavLink>
-          <h1 className="login__title">С возвращением!</h1>
+          <h1 className="login__title">Рады видеть!</h1>
           <form className="login__form-container">
             <label className="login__form-item">
               E-mail
@@ -37,7 +37,7 @@ function Login() {
             </button>
           </form>
           <p className="login__text">
-            Вы ещё не зарегистрированы?
+            Ещё не зарегистрированы?
             <Link to={"/signup"} className="login__link">
               Регистрация
             </Link>

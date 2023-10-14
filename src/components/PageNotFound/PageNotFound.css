@@ -6,6 +6,7 @@
   width: 100vw;
   height: 100vh;
   gap: 184px;
+  margin-top: 93px;
 }
 
 .page-not-found__container {
@@ -53,12 +54,14 @@
 }
 
 .page-not-found__button:hover {
-  opacity: 0.7;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 @media (max-width: 400px) {
   .page-not-found {
     gap: 284px;
+    margin-top: 149px;
   }
 
   .page-not-found__container {

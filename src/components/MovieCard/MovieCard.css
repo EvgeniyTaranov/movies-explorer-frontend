@@ -41,7 +41,7 @@
 
 .movie__button-save_inactive:hover,
 .movie__button-save_active:hover {
-  opacity: 0.8;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -97,7 +97,7 @@
 
 @media (max-width:320px) {
   .movie__link-container {
-    gap: 17px;
+    gap: 15px;
   }
 
   .movie__name {

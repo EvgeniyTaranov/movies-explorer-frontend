@@ -45,6 +45,7 @@
 
 .portfolio__link:hover {
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .portfolio__link::after {
@@ -68,6 +69,10 @@
         max-width: 668px;
     }
 
+    .portfolio__item {
+        padding: 29px 0 19px;
+    }
+
     .portfolio__subtitle {
         margin: 0 0 20px;
         color: #A0A0A0;
@@ -79,8 +84,12 @@
         letter-spacing: -1.12px;
     }
 
+    .portfolio__item:nth-child(2) {
+        padding: 21px 0 18px;
+    }
+
     .portfolio__item:nth-last-child(1) {
-        padding: 19px 0 0;
+        padding: 21px 0 1px;
     }
 }
 
@@ -100,7 +109,7 @@
     .portfolio__link::after {
         display: flex;
         align-items: start;
-        background-image: url("../../images/arrow-main.png");
+        background-image: url("../../images/arrow-main.svg");
         width: 18px;
         height: 27px;
     }

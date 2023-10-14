@@ -113,6 +113,11 @@
   margin: 0 0 0 6px;
 }
 
+.login__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 @media (max-width:768px) {
   .login {
     padding: 232px 0;

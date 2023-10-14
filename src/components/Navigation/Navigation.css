@@ -20,6 +20,7 @@
   top: 0;
   right: 0;
   background: #202020;
+  gap: 599px;
 }
 
 .burger-menu__close {
@@ -55,7 +56,7 @@
   line-height: normal;
   width: max-content;
   font-feature-settings: "clig" off, "liga" off;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   color: #fff;
 }
 
@@ -83,9 +84,16 @@
   margin: 0 auto 90px;
 }
 
+.burger-menu__link:hover,
+.burger-menu__link-profile:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 @media (max-width: 500px) {
   .burger-menu__container {
     width: 100%;
+    gap: 419px;
   }
 
   .burger-menu__close {
