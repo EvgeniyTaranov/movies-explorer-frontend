@@ -23,7 +23,7 @@
 .portfolio__item {
     border-bottom: solid 1px #424242;
     position: relative;
-    padding: 21px 0 19px;
+    padding: 20px 0 19px;
 }
 
 .portfolio__item:nth-last-child(1) {

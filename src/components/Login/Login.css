@@ -18,6 +18,11 @@
   margin-bottom: 37px;
 }
 
+.login__logo-link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .login__title {
   margin: 0 0 40px;
   font-size: 24px;

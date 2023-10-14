@@ -2,9 +2,9 @@ import "./Movies.css";
 import MovieCard from "../MovieCard/MovieCard";
 import MovieCardList from "../MovieCardList/MovieCardList";
 import SearchForm from "../SearchField/SearchField";
-import movieOne from "../../images/cards/33-slova-o-dizigne.svg";
-import movieTwo from "../../images/cards/100-let-dizigna.svg";
-import movieThree from "../../images/cards/v-pogone-za-benksi.svg";
+import movieOne from "../../images/cards/33-slova-o-dizigne.png";
+import movieTwo from "../../images/cards/100-let-dizigna.png";
+import movieThree from "../../images/cards/v-pogone-za-benksi.png";
 
 function Movies() {
   const movies = [

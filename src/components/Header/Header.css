@@ -2,8 +2,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1140px;
-  width: calc(100vw - 140px);
   margin: 18px 70px;
   gap: auto;
   position: relative;
@@ -109,7 +107,6 @@
 @media (max-width: 768px) {
   .header {
     margin: 17px 30px 15px;
-    min-width: calc(100vw - 60px);
   }
 
   .header__menu-buttons {
@@ -127,8 +124,7 @@
 
 @media (max-width: 320px) {
   .header {
-    margin: 17px auto 19px;
-    min-width: calc(100vw - 28px);
+    margin: 17px 14px 19px;
   }
 
   .header__menu-main {

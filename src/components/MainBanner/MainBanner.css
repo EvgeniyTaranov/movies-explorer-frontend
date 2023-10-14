@@ -1,6 +1,6 @@
 .main-banner {
     display: flex;
-    padding: 20px 40px 0;
+    padding: 15px 40px 0;
 }
 
 .banner {
@@ -8,7 +8,7 @@
     flex-direction: column;
     margin: auto;
     max-width: 1200px;
-    padding: 160px 235px 30px;
+    padding: 161px 235px 30px;
     border-radius: 10px;
     gap: 150px;
     background-color: #272727;

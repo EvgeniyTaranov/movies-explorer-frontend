@@ -1,7 +1,7 @@
 .checkbox-toggle {
   display: flex;
   margin: auto;
-  max-width: 156px;
+  max-width: 161px;
   gap: 12px;
 }
 
@@ -46,7 +46,6 @@
 
 @media (max-width: 767px) {
   .checkbox-toggle {
-    max-width: 148px;
     gap: 13px;
   }
 

@@ -6,7 +6,7 @@ import logo from "../../images/logo.svg";
 
 function Header() {
   const [burgerMenu, setBurgerMenu] = React.useState(false);
-  const [headerActiv] = useState(false);
+  const [headerActiv] = useState(true);
 
   function openBurgerMenu() {
     setBurgerMenu(true);

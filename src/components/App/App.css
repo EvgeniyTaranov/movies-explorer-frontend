@@ -1,11 +1,12 @@
-body {
+/* body {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #202020;
+  margin: 50px;
 }
 
-.page {
+/* .page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,6 +14,44 @@ body {
   min-height: 100vh;
   width: 100%;
   font-family: "Inter", Arial, sans-serif;
+} */
+
+/* .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1280px;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+main {
+  flex: 1;
+}  */
+
+body {
+  background-color: #202020;
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: center; */
+}
+
+.page {
+ /* max-width: 1280px;
+  width: 100%; */
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;  */
+  /* align-items: center; */
+  font-family: "Inter", Arial, sans-serif;
+  margin: auto;
 }
 
 main {

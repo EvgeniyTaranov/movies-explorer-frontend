@@ -1,7 +1,7 @@
 import SectionHeader from "../HeaderSection/HeaderSection";
 import Portfolio from "../Portfolio/Portfolio";
 import "./AboutMe.css";
-import profileImage from "../../images/profile-image.svg";
+import profileImage from "../../images/profile-image.png";
 
 function AboutMe() {
   return (
@@ -14,8 +14,8 @@ function AboutMe() {
           <p className="introduction__description">
             Я&nbsp;родился и&nbsp;живу в&nbsp;Саратове, закончил факультет
             экономики СГУ. У&nbsp;меня есть жена и&nbsp;дочь. Я&nbsp;люблю
-            слушать музыку, а&nbsp;ещё увлекаюсь бегом. Недавно начал кодить.
-            С&nbsp;2015 года работал в&nbsp;компании &laquo;СКБ Контур&raquo;.
+            слушать музыку, а&nbsp;ещё увлекаюсь бегом. Недавно начал кодить.&nbsp;С
+            2015 года работал в&nbsp;компании &laquo;СКБ Контур&raquo;.
             После того, как прошёл курс по&nbsp;веб-разработке, начал заниматься
             фриланс-заказами и&nbsp;ушёл с&nbsp;постоянной работы.
           </p>
