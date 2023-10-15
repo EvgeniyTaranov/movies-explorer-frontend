@@ -1,0 +1,163 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 71px 0;
+}
+
+.register__container {
+  display: flex;
+  flex-direction: column;
+  width: 396px;
+}
+
+.register__logo {
+  margin-bottom: 37px;
+}
+
+.register__logo:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.register__title {
+  margin: 0 0 40px;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  height: 100%;
+  color: #FFF;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register__form-field {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  color: #8b8b8b;
+}
+
+.register__form-input {
+  margin: 10px 0 0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  border: none;
+  background: #2f2f2f;
+  color: #fff;
+}
+
+.register__form-input:focus {
+  outline: 1px solid #46f494;
+}
+
+.register__form-span {
+  display: none;
+  margin: 10px 0 0 0;
+  font-size: 10px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  color: #ee3465;
+}
+
+.register__form-button {
+  flex-shrink: 0;
+  margin: 70px 0 16px;
+  width: 396px;
+  height: 45px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  border: none;
+  border-radius: 3px;
+  background: #4285f4;
+  color: #fff;
+}
+
+.register__form-button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.register__question {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  color: #8b8b8b;
+}
+
+.register__link {
+  margin: 0 0 0 6px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  text-decoration: none;
+  color: #4285f4;
+}
+
+.register__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media (max-width:768px) {
+  .register {
+    padding: 232px 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .register {
+    padding: 56px 30px 30px 30px;
+  }
+
+  .register__container {
+    width: 260px;
+  }
+
+  .register__logo {
+    margin-bottom: 46px;
+    text-align: center;
+  }
+
+  .register__title {
+    text-align: center;
+    margin: 0 0 81px;
+  }
+
+  .register__form-button {
+    margin: 160px 0 14px;
+    width: 260px;
+    font-size: 12px;
+  }
+
+  .register__question {
+    font-size: 12px;
+  }
+
+  .register__link {
+    font-size: 12px;
+  }
+}

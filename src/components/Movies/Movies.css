@@ -1,0 +1,32 @@
+.movies__button-container {
+  display: flex;
+  height: 166px;
+  background: #202020;
+}
+
+.movies__button {
+  width: 320px;
+  height: 36px;
+  flex-shrink: 0;
+  margin: 50px auto 80px;
+  border-radius: 6px;
+  border: 1px solid #424242;
+  background: #202020;
+  color: #FFF;
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.movies__button:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .movies__button {
+    width: 240px;
+  }
+}

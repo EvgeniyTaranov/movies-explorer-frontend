@@ -1,0 +1,20 @@
+.header-section {
+    display: flex;
+    font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    padding-bottom: 23px;
+    border-bottom: solid 1px #DADADA;
+    color: #FFF;
+    margin: 0;
+}
+
+@media (max-width: 320px) {
+    .header-section {
+        padding-bottom: 29px;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+    }
+}
