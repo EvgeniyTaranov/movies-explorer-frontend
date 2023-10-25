@@ -5,11 +5,16 @@ import logo from "../../images/logo.svg";
 import "./Login.css";
 
 function Login({ handleAuthorize }) {
-  const { values, errors, isValid, handleChange } = useForm({});
+  const { values, errors, isValid, handleChange, isSubmitting, setIsSubmitting } = useForm(['email', 'password']);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAuthorize(values.password, values.email);
+    setIsSubmitting(true);
+    handleAuthorize(values.password, values.email).then(() => {
+      setIsSubmitting(false);
+    }).catch(() => {
+      setIsSubmitting(false);
+    });
   };
 
   return (
@@ -32,6 +37,7 @@ function Login({ handleAuthorize }) {
                 type="email"
                 pattern={REG_EMAIL}
                 className="login__form-input"
+                disabled={isSubmitting}
               ></input>
               <span className="login__form-span">{errors.email}</span>
             </label>
@@ -46,15 +52,16 @@ function Login({ handleAuthorize }) {
                 required
                 type="password"
                 className="login__form-input"
+                disabled={isSubmitting}
               ></input>
               <span className="login__form-span">{errors.password}</span>
             </label>
             <button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
               className={`login__form-button ${!isValid && "login__form-button_disabled"}`}
             >
-              Войти
+              {isSubmitting ? "Вход..." : "Войти"}
             </button>
           </form>
           <p className="login__text">

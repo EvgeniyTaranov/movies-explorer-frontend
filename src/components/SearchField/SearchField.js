@@ -26,7 +26,7 @@ function SearchForm({
   }, []);
 
   useEffect(() => {
-    if (!values.searchMovies) {
+    if (!values.searchMovies && location.pathname === "/movies") {
       setIsDisabledChekbox(true);
     } else {
       setIsDisabledChekbox(false);

@@ -5,11 +5,16 @@ import logo from "../../images/logo.svg";
 import "./Register.css";
 
 function Register({ handleRegistr }) {
-  const { values, errors, isValid, handleChange } = useForm();
+  const { values, errors, isValid, handleChange, isSubmitting, setIsSubmitting } = useForm(['name', 'email', 'password']);
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleRegistr(values.name, values.email, values.password);
+    setIsSubmitting(true);
+    handleRegistr(values.name, values.email, values.password).then(() => {
+      setIsSubmitting(false);
+    }).catch(() => {
+      setIsSubmitting(false);
+    });
   }
 
   return (
@@ -34,6 +39,7 @@ function Register({ handleRegistr }) {
                 pattern={REG_NAME}
                 type="text"
                 className="register__form-input"
+                disabled={isSubmitting}
               ></input>
               <span className="register__form-span">{errors.name}</span>
             </label>
@@ -48,6 +54,7 @@ function Register({ handleRegistr }) {
                 type="email"
                 pattern={REG_EMAIL}
                 className="register__form-input"
+                disabled={isSubmitting}
               ></input>
               <span className="register__form-span">{errors.email}</span>
             </label>
@@ -63,15 +70,16 @@ function Register({ handleRegistr }) {
                 required
                 type="password"
                 className="register__form-input"
+                disabled={isSubmitting}
               ></input>
               <span className="register__form-span">{errors.password}</span>
             </label>
             <button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
               className={`register__form-button ${!isValid && "register__form-button_disabled"}`}
             >
-              Зарегистрироваться
+              {isSubmitting ? "Регистрация..." : "Зарегистрироваться"}
             </button>
           </form>
           <p className="register__question">

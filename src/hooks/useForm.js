@@ -1,12 +1,17 @@
 import { useState, useCallback } from 'react';
 import { isEmail } from 'validator';
+import { isEqual } from 'lodash';
 
-const useForm = () => {
+const useForm = (initialRequiredFields) => {
   const [values, setValues] = useState({});
+  const [initialValues, setInitialValues] = useState({});
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isValid, setIsValid] = useState(false);
 
   const namePattern = /^[A-Za-zА-Яа-я\s\-]+$/;
+
+  const requiredFields = initialRequiredFields;
 
   const handleChange = useCallback(
     (event) => {
@@ -14,11 +19,10 @@ const useForm = () => {
       const name = target.name;
       const value = target.value;
 
-      setValues(prevValues => ({ ...prevValues, [name]: value }));
+      const updatedValues = { ...values, [name]: value };
 
-      let newErrors = { ...errors }; // копируем текущие ошибки
+      let newErrors = { ...errors };
 
-      // Валидация email
       if (name === 'email') {
         if (!isEmail(value)) {
           newErrors[name] = 'Некорректный email';
@@ -27,7 +31,6 @@ const useForm = () => {
         }
       }
 
-      // Валидация имени
       if (name === 'name') {
         if (!namePattern.test(value)) {
           newErrors[name] = 'Имя может содержать только латиницу, кириллицу, пробел или дефис.';
@@ -38,7 +41,6 @@ const useForm = () => {
         }
       }
 
-      // Валидация пароля
       if (name === 'password') {
         if (value.length < 6) {
           newErrors[name] = 'Пароль должен содержать минимум 6 символов';
@@ -48,9 +50,15 @@ const useForm = () => {
       }
 
       setErrors(newErrors);
-      setIsValid(!Object.keys(newErrors).length); // пересчитываем isValid на основе новых ошибок
+      setIsValid(
+        requiredFields.every(field => updatedValues[field]) &&
+        !Object.keys(newErrors).length &&
+        !isEqual(initialValues, updatedValues)
+      );
+
+      setValues(updatedValues);
     },
-    [errors] // зависимость от errors
+    [errors, values, initialValues]
   );
 
   const resetInput = useCallback(() => {
@@ -59,7 +67,7 @@ const useForm = () => {
     setIsValid(false);
   }, []);
 
-  return { values, handleChange, errors, isValid, setValues, resetInput };
+  return { values, handleChange, errors, isValid, setValues, resetInput, setInitialValues, isSubmitting, setIsSubmitting };
 };
 
 export default useForm;

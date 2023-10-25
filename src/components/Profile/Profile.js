@@ -18,12 +18,13 @@ function Profile({
   const { value } = useContext(CurrentUserContext);
   const [currentUser] = value;
 
-  const { values, handleChange, errors, isValid, setValues, resetInput } = useForm();
+  const { values, handleChange, errors, isValid, setValues, resetInput, setInitialValues, isSubmitting, setIsSubmitting } = useForm(['name', 'email']);
   const navigate = useNavigate();
 
   useEffect(() => {
     setValues(currentUser);
-  }, [currentUser]);
+    setInitialValues(currentUser);
+  }, [currentUser, setValues, setInitialValues]);
 
   function handleLogout() {
     resetInput();
@@ -36,7 +37,10 @@ function Profile({
 
   function handleSubmit(event) {
     event.preventDefault();
-    handleEditProfile(values);
+    setIsSubmitting(true);
+    handleEditProfile(values).then(() => {
+      setIsSubmitting(false);
+    });
   }
 
   return (
@@ -50,7 +54,7 @@ function Profile({
               placeholder="Имя"
               name="name"
               onChange={handleChange}
-              disabled={!buttonSave}
+              disabled={!buttonSave || isSubmitting}
               required
               pattern={REG_NAME}
               minLength={2}
@@ -68,7 +72,7 @@ function Profile({
               placeholder="E-mail"
               name="email"
               onChange={handleChange}
-              disabled={!buttonSave}
+              disabled={!buttonSave || isSubmitting}
               required
               className="profile__input"
               pattern={REG_EMAIL}
@@ -81,10 +85,10 @@ function Profile({
           {buttonSave && (
             <button
               type="submit"
-              disabled={!isValid}
+              disabled={!isValid || isSubmitting}
               className={classNames('profile__save-button', { 'profile__save-button:disabled': !isValid })}
             >
-              Сохранить
+              {isSubmitting ? "Сохранение..." : "Сохранить"}
             </button>
           )}
           {!buttonSave &&

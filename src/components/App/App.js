@@ -142,7 +142,7 @@ function App() {
         item.nameEN.toLowerCase().includes(value.searchMovies.toLowerCase());
       return checked ? sort && item.duration <= 40 : sort;
     });
-  
+
     if (location.pathname === ROUTES.MOVIES) {
       localStorage.setItem("sortMovies", JSON.stringify(filtered));
       setSortMovies(filtered);
@@ -150,10 +150,10 @@ function App() {
       setSortSavedMovies(filtered);
     }
   }
-  
+
   async function getAllMovies(value, checked) {
     setIsPreloader(true);
-    
+
     try {
       const movies = await loadAllMovies();
       setAllMovies(movies);
