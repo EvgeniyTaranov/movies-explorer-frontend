@@ -1,7 +1,7 @@
 import SectionHeader from "../HeaderSection/HeaderSection";
 import Portfolio from "../Portfolio/Portfolio";
-import "./AboutMe.css";
 import profileImage from "../../images/profile-image.png";
+import "./AboutMe.css";
 
 function AboutMe() {
   return (

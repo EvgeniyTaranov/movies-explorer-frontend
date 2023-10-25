@@ -30,12 +30,13 @@
 .navigation-section {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: auto;
     padding: 0;
     text-decoration: none;
     list-style-type: none;
     gap: 10px;
+    max-width: fit-content;
 }
 
 .banner__element {
