@@ -11,7 +11,7 @@ function SearchForm({
   isDisabledChekbox,
   setIsDisabledChekbox,
 }) {
-  const { values, setValues, handleChange } = useForm({});
+  const { values, setValues, handleChange } = useForm(['searchMovies']);
   const location = useLocation();
   const [errorNoValue, setErrorNoValue] = useState(false);
 
