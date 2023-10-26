@@ -8,6 +8,7 @@ const useForm = (initialRequiredFields) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isValid, setIsValid] = useState(false);
+  const [hasChanges, setHasChanges] = useState(false);
 
   const namePattern = /^[A-Za-zА-Яа-я\s\-]+$/;
 
@@ -52,10 +53,10 @@ const useForm = (initialRequiredFields) => {
       setErrors(newErrors);
       setIsValid(
         requiredFields.every(field => updatedValues[field]) &&
-        !Object.keys(newErrors).length &&
-        !isEqual(initialValues, updatedValues)
+        !Object.keys(newErrors).length
       );
 
+      setHasChanges(!isEqual(initialValues, updatedValues));
       setValues(updatedValues);
     },
     [errors, values, initialValues]
@@ -65,9 +66,22 @@ const useForm = (initialRequiredFields) => {
     setValues({});
     setErrors({});
     setIsValid(false);
+    setHasChanges(false);
   }, []);
 
-  return { values, handleChange, errors, isValid, setValues, resetInput, setInitialValues, isSubmitting, setIsSubmitting };
+  return {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setValues,
+    resetInput,
+    setInitialValues,
+    isSubmitting,
+    setIsSubmitting,
+    hasChanges,
+    setHasChanges 
+  };
 };
 
 export default useForm;

@@ -18,7 +18,20 @@ function Profile({
   const { value } = useContext(CurrentUserContext);
   const [currentUser] = value;
 
-  const { values, handleChange, errors, isValid, setValues, resetInput, setInitialValues, isSubmitting, setIsSubmitting } = useForm(['name', 'email']);
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    setValues,
+    resetInput,
+    setInitialValues,
+    isSubmitting,
+    setIsSubmitting,
+    hasChanges, 
+    setHasChanges 
+  } = useForm(['name', 'email']);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,9 +51,12 @@ function Profile({
   function handleSubmit(event) {
     event.preventDefault();
     setIsSubmitting(true);
-    handleEditProfile(values).then(() => {
-      setIsSubmitting(false);
-    });
+    handleEditProfile(values)
+      .then(() => {
+        setInitialValues(values);
+        setIsSubmitting(false);
+        setHasChanges(false); 
+      });
   }
 
   return (
@@ -85,7 +101,7 @@ function Profile({
           {buttonSave && (
             <button
               type="submit"
-              disabled={!isValid || isSubmitting}
+              disabled={!isValid || isSubmitting || !hasChanges}
               className={classNames('profile__save-button', { 'profile__save-button:disabled': !isValid })}
             >
               {isSubmitting ? "Сохранение..." : "Сохранить"}

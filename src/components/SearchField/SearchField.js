@@ -16,14 +16,17 @@ function SearchForm({
   const [errorNoValue, setErrorNoValue] = useState(false);
 
   useEffect(() => {
-    if (
-      location.pathname === "/movies" &&
-      localStorage.getItem("valueSearch")
-    ) {
+    if (location.pathname === "/movies" && localStorage.getItem("valueSearch")) {
       const valueLocalStorage = JSON.parse(localStorage.getItem("valueSearch"));
       setValues(valueLocalStorage);
     }
-  }, []);
+  }, [setValues, location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname === "/saved-movies") {
+      setChecked(false);
+    }
+  }, [setChecked, location.pathname]);
 
   useEffect(() => {
     if (!values.searchMovies && location.pathname === "/movies") {
@@ -32,7 +35,7 @@ function SearchForm({
       setIsDisabledChekbox(false);
       setErrorNoValue(false);
     }
-  });
+  }, [setIsDisabledChekbox, values.searchMovies, location.pathname]);
 
   function handleSubmit(e) {
     e.preventDefault();

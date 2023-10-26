@@ -60,11 +60,11 @@ function Movies({
 
   useEffect(() => {
     if (localStorage.getItem("sortMovies")) {
-      let checked = JSON.parse(localStorage.getItem("checked"));
+      let checkedMovies = JSON.parse(localStorage.getItem("checkedMovies"));
       let sortMovies = JSON.parse(localStorage.getItem("sortMovies"));
 
       setSortMovies(sortMovies);
-      setChecked(checked);
+      setChecked(checkedMovies);
     } else {
       setIsDisabledChekbox(true);
     }
@@ -77,7 +77,7 @@ function Movies({
       filterMovies(value, checked, allMovies);
     }
     localStorage.setItem("valueSearch", JSON.stringify(value));
-    localStorage.setItem("checked", checked);
+    localStorage.setItem("checkedMovies", JSON.stringify(checked));
   }, [allMovies, getAllMovies, filterMovies]);
 
   return (

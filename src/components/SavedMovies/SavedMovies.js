@@ -15,23 +15,32 @@ function SavedMovies({
   setSavedMovies,
   sortSavedMovies,
 }) {
-  const [showSavedMovies, setShowSavedMovies] = useState(false);
+  const [setShowSavedMovies] = useState(false);
   const [searchText, setSearchText] = useState('');
 
-  function handleSubmitSearch(value, checked) {
-    setSearchText(value.searchMovies);
+  useEffect(() => {
+    let savedChecked = localStorage.getItem("checkedMoviesSaved");
+    if (savedChecked) {
+      setChecked(JSON.parse(savedChecked));
+    }
+  }, [setChecked]);
+
+  const handleSubmitSearch = (value, checked) => {
+    setSearchText(value.searchMovies.toLowerCase());
     filterMovies(value, checked, savedMovies);
     setShowSavedMovies(false);
-  }
+    localStorage.setItem("checkedMoviesSaved", JSON.stringify(checked));
+  };
 
-  function filterIt(movies) {
+  const filterIt = (movies) => {
     return movies.filter((item) => {
-      let sort =
-        item.nameRU.toLowerCase().includes(searchText) ||
-        item.nameEN.toLowerCase().includes(searchText);
-      return checked ? sort && item.duration <= 40 : sort;
+      const matchRU = item.nameRU.toLowerCase().includes(searchText);
+      const matchEN = item.nameEN && item.nameEN.toLowerCase().includes(searchText);
+      const isShort = item.duration <= 40;
+
+      return checked ? (matchRU || matchEN) && isShort : matchRU || matchEN;
     });
-  }
+  };
 
   const renderMovies = (movies) => (
     filterIt(movies).map((item) => (
