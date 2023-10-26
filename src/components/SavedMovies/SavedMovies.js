@@ -1,31 +1,83 @@
-import MovieCardList from "../MovieCardList/MovieCardList";
+import { useEffect, useState } from "react";
 import MovieCard from "../MovieCard/MovieCard";
-import SearchField from "../SearchField/SearchField";
-import movieOne from "../../images/cards/33-slova-o-dizigne.png";
-import movieTwo from "../../images/cards/100-let-dizigna.png";
-import movieThree from "../../images/cards/v-pogone-za-benksi.png";
+import MoviesCardList from "../MovieCardList/MovieCardList";
+import SearchForm from "../SearchField/SearchField";
 import "./SavedMovies.css";
 
-function SavedMovies() {
-  const moviess = [
-    { img: movieOne, name: "33 слова о дизайне", duration: "1ч 17м" },
-    { img: movieTwo, name: "Киноальманах «100 лет дизайна»", duration: "1ч 17м" },
-    { img: movieThree, name: "В погоне за Бенкси", duration: "1ч 17м" },
-  ];
+function SavedMovies({
+  setChecked,
+  checked,
+  setSortSavedMovies,
+  setIsDisabledChekbox,
+  isDisabledChekbox,
+  filterMovies,
+  savedMovies,
+  setSavedMovies,
+  sortSavedMovies,
+}) {
+  const [setShowSavedMovies] = useState(false);
+  const [searchText, setSearchText] = useState('');
+
+  useEffect(() => {
+    let savedChecked = localStorage.getItem("checkedMoviesSaved");
+    if (savedChecked) {
+      setChecked(JSON.parse(savedChecked));
+    }
+  }, [setChecked]);
+
+  const handleSubmitSearch = (value, checked) => {
+    setSearchText(value.searchMovies.toLowerCase());
+    filterMovies(value, checked, savedMovies);
+    setShowSavedMovies(false);
+    localStorage.setItem("checkedMoviesSaved", JSON.stringify(checked));
+  };
+
+  const filterIt = (movies) => {
+    return movies.filter((item) => {
+      const matchRU = item.nameRU.toLowerCase().includes(searchText);
+      const matchEN = item.nameEN && item.nameEN.toLowerCase().includes(searchText);
+      const isShort = item.duration <= 40;
+
+      return checked ? (matchRU || matchEN) && isShort : matchRU || matchEN;
+    });
+  };
+
+  const renderMovies = (movies) => (
+    filterIt(movies).map((item) => (
+      <MovieCard
+        savedMovies={savedMovies}
+        setSavedMovies={setSavedMovies}
+        key={item._id}
+        id={item.movieId}
+        item={item}
+        link={item.trailerLink}
+        src={item.image}
+        name={item.nameRU}
+        duration={item.duration}
+        sortSavedMovies={sortSavedMovies}
+        setSortSavedMovies={setSortSavedMovies}
+      />
+    ))
+  );
 
   return (
     <main className="saved-movies">
-      <SearchField></SearchField>
-      <MovieCardList>
-        {moviess.map((item, index) => (
-          <MovieCard
-            key={index}
-            src={item.img}
-            name={item.name}
-            duration={item.duration}
-          ></MovieCard>
-        ))}
-      </MovieCardList>
+      <SearchForm
+        setIsDisabledChekbox={setIsDisabledChekbox}
+        setChecked={setChecked}
+        checked={checked}
+        handleSubmitSearch={handleSubmitSearch}
+        isDisabledChekbox={isDisabledChekbox}
+      />
+
+      <MoviesCardList>{renderMovies(savedMovies)}</MoviesCardList>
+      {!filterIt(savedMovies).length && (
+        <div className="info-container">
+          <p className="info-container__text">
+            Ничего не найдено. Попробуйте еще раз.
+          </p>
+        </div>
+      )}
     </main>
   );
 }

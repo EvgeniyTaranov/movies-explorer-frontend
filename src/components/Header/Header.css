@@ -39,6 +39,16 @@
   color: #fff;
 }
 
+.header__menu-buttons_active {
+  color: #fff;
+  text-align: right;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.38;
+  text-decoration: none;
+}
+
 .header__button-registration {
   font-size: 12px;
   font-style: normal;

@@ -65,8 +65,8 @@
   outline: 1px solid #46f494;
 }
 
-.register__form-span {
-  display: none;
+.register__form-input:invalid+.register__form-span {
+  display: block;
   margin: 10px 0 0 0;
   font-size: 10px;
   font-weight: 400;
@@ -94,6 +94,12 @@
 .register__form-button:hover {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.register__form-button_disabled {
+  background: #a8a8a8;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .register__question {

@@ -1,3 +1,18 @@
 .saved-movies {
     height: 100%;
 }
+
+.info-container {
+    margin: 100px auto;
+}
+
+.info-container__text {
+    margin: 0;
+    padding: 0;
+    color: #8b8b8b;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
